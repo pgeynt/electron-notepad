@@ -1,0 +1,67 @@
+{
+  "name": "notpad",
+  "version": "1.0.0",
+  "description": "Modern not alma uygulaması",
+  "scripts": {
+    "start": "electron .",
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development --watch",
+    "dev-start": "concurrently \"npm run dev\" \"npm run start\"",
+    "package-win": "electron-builder --win --x64",
+    "package-mac": "electron-builder --mac",
+    "package-linux": "electron-builder --linux"
+  },
+  "main": "main.js",
+  "build": {
+    "appId": "com.notpad.app",
+    "productName": "Not Defteri",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "main.js",
+      "index.html",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "icon": "assets/icon.icns"
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "icon": "assets/icon.png"
+    }
+  },
+  "dependencies": {
+    "@electron/remote": "^2.1.2",
+    "bootstrap": "^5.3.3",
+    "react": "^19.0.0",
+    "react-bootstrap": "^2.10.7",
+    "react-bootstrap-icons": "^1.11.5",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.26.3",
+    "babel-loader": "^9.2.1",
+    "concurrently": "^8.2.2",
+    "css-loader": "^7.1.2",
+    "electron": "^34.0.0",
+    "electron-builder": "^24.13.3",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  }
+}
